@@ -1,8 +1,8 @@
 const { response } = require('express');
 const Testemonial = require('./../models/Testimonial');
-var fs = require('fs');
 
 exports.createTestimonial = async (req, res) => {
+    
     const testimonial = new Testemonial ({
         name: req.body.name,
         age: req.body.age,
@@ -11,7 +11,7 @@ exports.createTestimonial = async (req, res) => {
         image: req.file.path
     })
     await testimonial.save();
-    res.send('Testimonial is inserterd succesfully!');
+    res.send('Testimonial is inserted succesfully!');
 }
   
 exports.getAllTestimonials = async(req, res) => {
